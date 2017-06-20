@@ -13,8 +13,7 @@ app.use(sassMiddleware({
     dest: __dirname + '/public',
     debug: true,
     outputStyle: 'compressed'
-  }),
-);
+  }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', function(req, res){
   res.render('index');
