@@ -1,0 +1,28 @@
+extends ./layout.jade
+
+block content
+  script(type="application/json", id="json_data") !{json}
+    
+  .post-wrapper
+      
+    for post in posts
+        section.post
+          .container
+            .row.event
+              .remove-trigger.fa.fa-close
+              .col-lg-3
+                h4.event-time #{post.weekday} <br /> #{post.day} <br /> #{post.start} - #{post.finish}
+              .col-lg-9
+                h2.section-heading.event-title #{post.title}
+                h3.event-where !{post.where}
+                if post.more 
+                  p.read-more.content(id="#{post.id}") #{post.summary}
+                    a(href="##{post.id}", id="#{post.id}").read-more-trigger Read More
+                else
+                  p.content(id="#{post.id}") #{post.description}
+                
+                a(href="#{post.link}").rsvp RSVP
+                  span.fa.fa-chevron-right
+                
+                
+                
